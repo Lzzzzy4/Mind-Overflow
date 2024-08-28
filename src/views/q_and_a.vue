@@ -40,7 +40,7 @@
 
 <script>
 
-import CollapsibleSidebar from '@/components/CollapsibleSidebar.vue';
+import CollapsibleSidebar from '@/components/CollapsibleSideBar.vue';
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
