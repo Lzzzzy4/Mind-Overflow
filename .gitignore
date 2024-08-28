@@ -1,3 +1,6 @@
+.mindnlp*
+nohup.out
+
 # Logs
 logs
 *.log
