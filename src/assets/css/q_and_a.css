@@ -1,0 +1,175 @@
+       /* 简单的样式调整 */
+
+       /* 对话框大小 */
+       .chat-container {
+           position: absolute;
+           top: 800%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           display: flex;
+
+           flex-direction: column;
+           /* 垂直排列，确保输入框在底部 */
+           width: 1000px;
+           /* 对话框的宽度设置为 1000px */
+           height: 600px;
+           /* 设置高度为 600px */
+           margin: auto auto;
+           /* 外边距：上下各 40px，左右自动居中 */
+
+           border: 1px solid #ccc;
+           /* 对话框的边框，1px 宽，颜色为浅灰色 (#ccc) */
+
+           border-radius: 10px;
+           /* 边角圆滑，圆角半径为 10px */
+
+           padding: 20px;
+           /* 内边距：对话框内容距离边框的内边距为 20px */
+
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+           /* 阴影效果：产生 10px 模糊的阴影，颜色为浅黑色 */
+
+           background-color: #ffffffed;
+           /* 背景颜色设置为白色 */
+       }
+
+       /* 页面背景图 */
+       body {
+           /* background-image: url('img/background.jpg');*/
+           /* 需要替换为实际的背景图片路径 */
+           background-size: cover;
+           /* 背景图按比例铺满页面 */
+           background-position: center;
+           background-repeat: no-repeat;
+           margin: 0;
+           padding: 0;
+           height: 100vh;
+           /* 设置高度为视窗高度 */
+       }
+
+       /* 显示聊天记录的窗口 */
+       .chat-window {
+
+           flex-grow: 1;
+           /* 占据剩余空间 */
+           height: 100%;
+
+           overflow-y: auto;
+           border-bottom: 1px solid #ccc;
+           margin-bottom: 10px;
+           padding: 10px;
+       }
+
+       .chat-message {
+           padding: 5px;
+           margin: 5px 0;
+       }
+
+       .user-message {
+           text-align: right;
+       }
+
+       .ai-message {
+           text-align: left;
+       }
+
+       /* 输入和发送消息 */
+       .input-container {
+           display: flex;
+           margin-top: 6px;
+           /* 输入框和上面的聊天记录稍微留点空间 */
+       }
+
+       .input-container input {
+           flex: 1;
+           flex-grow: 1;
+           /* 占据剩余空间 */
+
+           padding: 10px;
+           border: 1.5px solid #6f88d9;
+           border-radius: 5px;
+           margin-right: 10px;
+       }
+
+       .input-container button {
+           padding: 10px 20px;
+           background-color: #5ba4f7;
+           color: white;
+           border: none;
+           border-radius: 5px;
+           cursor: pointer;
+       }
+
+       .custom-title {
+           color: black;
+           font-weight: bold;
+           text-align: center;
+           text-shadow: 0px 0px 2px rgba(8, 8, 8, 0.5);
+       }
+
+
+
+
+
+       .sidebar {
+           width: 250px;
+           height: 100%;
+           position: fixed;
+           top: 0;
+           left: 0;
+           background-color: #f8f9fa;
+           overflow-y: auto;
+           transition: width 0.3s,
+               box-shadow 0.3s;
+           box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+           z-index: 1000;
+           /* 确保侧边栏在上方 */
+       }
+
+       /* 侧边栏收起时的样式 */
+       .sidebar.collapsed {
+           width: 50px;
+       }
+
+       /* 侧边栏内容 */
+       .sidebar-content {
+           padding: 15px;
+           display: none;
+           /* 默认不显示内容 */
+       }
+
+       .sidebar-content.show {
+           display: block;
+           /* 当侧边栏展开时显示内容 */
+       }
+
+
+
+       /*侧边栏展开，收起按钮*/
+       .sidebar-toggle {
+           position: absolute;
+           top: 50%;
+           right: 0;
+           transform: translateY(-50%);
+           width: 20px;
+           height: 50px;
+           background-color: #007bff;
+           color: white;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           cursor: pointer;
+           border-top-right-radius: 5px;
+           border-bottom-right-radius: 5px;
+           z-index: 1001;
+           /* 确保按钮在侧边栏上方 */
+       }
+
+
+
+       .chat-container {
+           flex-grow: 1;
+           margin-left: 80px;
+           /* Same as sidebar width */
+           transition: margin-left 0.3s;
+       }

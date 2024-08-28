@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>笔记列表</title>
+    <link rel="stylesheet" href="css/blog_list.css">
+    <link rel="stylesheet" href="css/mybloglist_bloglist.css">
+
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <div class="nav">
+        <img src="img/logo.jpg" alt="">
+        <span class="title">AI助教</span>
+        <!-- 用来占据中间位置 -->
+        <span class="spacer"></span>
+        <a href="blog_list.html">主页</a>
+        <a href="q_and_a.html">AI答疑</a>
+        <a href="blog_edit.html">写笔记</a>
+        <a href="login.html">登录</a>
+
+    </div>
+    <!-- 版心 -->
+    <div class="container">
+        <!-- 右侧内容详情 -->
+        <div class="container-right">
+            <!-- 每一篇笔记包含标题, 摘要, 时间 -->
+            <div class="blog">
+                <div class="title">我的第一篇笔记</div>
+                <div class="date">2024-01-28</div>
+                <div class="desc">
+                    线性代数是代数学的一个分支，主要处理线性关系问题。线性关系意即学对象之间的关系是以一次形式来表达的。
+                    例如，在解析几何里，平面上直线的方程是二元一次方程；空间平面的方程是三元一次方程，而空间直线视为两
+                    个平面相交，由两个三元一次方程所组成的方程组来表示。含有n个未知量的一次方程称为线性方程。关于变量是
+                    一次的函数称为线性函数。线性关系问题简称线性问题。解线性方程组的问题是最简单的线性问题。
+
+                </div>
+                <a href="blog_content.html?id=1" class="detail">查看全文 &gt;&gt;</a>
+            </div>
+
+
+
+
+            <div class="blog">
+                <div class="title">我的第二篇笔记</div>
+                <div class="date">2024-01-28</div>
+                <div class="desc">
+                    线性代数科学出版社
+
+
+                </div>
+                <a href="blog_content.html?id=2" class="detail">查看全文 &gt;&gt;</a>
+            </div>
+
+
+            <div class="blog">
+                <div class="title">我的第二篇笔记</div>
+                <div class="date">2024-01-28</div>
+                <div class="desc">
+                    线性代数科学出版社
+
+                </div>
+                <a href="blog_content.html?id=2" class="detail">查看全文 &gt;&gt;</a>
+            </div>
+
+
+            <hr>
+
+
+            <div class="blog-pagnation-wrapper">
+                <button class="blog-pagnation-item">首页</button>
+                <button class="blog-pagnation-item">上一页</button>
+                <button class="blog-pagnation-item">下一页</button>
+                <button class="blog-pagnation-item">末页</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
