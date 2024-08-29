@@ -1,20 +1,20 @@
-# from model import chat_model
+from model import chat_model
 import threading
-class chat_model:
-  def query(self, question):
-    ret = f"Nice query: {question}"
-    return ret
-
-  def direct_query(self, question):
-    ret = f"Nice direct query: {question}"
-    return ret
+# class chat_model:
+#   def query(self, question):
+#     ret = f"Nice query: {question}"
+#     return ret
+# 
+#   def direct_query(self, question):
+#     ret = f"Nice direct query: {question}"
+#     return ret
 
 from flask import Flask, request, Request, Response, jsonify
 app = Flask(__name__)
 
 print("Loading model...")
 mutex = threading.Lock()
-model = chat_model()
+model = chat_model(usr_RAG = True)
 print("Loaded!")
 
 @app.route('/api/query', methods=['POST'])
