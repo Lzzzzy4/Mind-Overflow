@@ -10,18 +10,22 @@ class chat_model:
         self.RAG = RAG()
         self.tokenizer = AutoTokenizer.from_pretrained(
             "THUDM/glm-4-9b-chat",
-            trust_remote_code=True,
-            cache_dir = '/data/code1/Mind-Overflow/chat/.mindnlp'
+            # trust_remote_code=True,
+            local_files_only = True,
+            cache_dir = '/data/code1/Mind-Overflow/chat/.mindnlp/',
         )
+        print("*****Load Tokenizer Complete*****")
         self.model = AutoModelForCausalLM.from_pretrained(
             "THUDM/glm-4-9b-chat",
             ms_dtype=mindspore.float16,
-            cache_dir = '/data/code1/Mind-Overflow/chat/.mindnlp'
+            cache_dir = '/data/code1/Mind-Overflow/chat/.mindnlp/',
+            local_files_only = True,
+            # device = 'cuda:0',
             # mirror='modelscope',
             # trust_remote_code=True
             # token = "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"
-        ).eval()
-        print("*****Load Complete*****")
+        ).to('cuda:0').eval()
+        print("*****Load Model Complete*****")
 
     def query(self, question:str):
         print("原始提问\n",question)
@@ -34,7 +38,7 @@ class chat_model:
             return_tensors="ms",
             return_dict=True
         )
-        gen_kwargs = {"max_length": 4100, "do_sample": True, "top_k": 1}
+        gen_kwargs = {"max_length": 100, "do_sample": True, "top_k": 1, "max_new_tokens":300}
         with no_grad():
             outputs = self.model.generate(**inputs, **gen_kwargs)
             outputs = outputs[:, inputs['input_ids'].shape[1]:]
@@ -42,4 +46,4 @@ class chat_model:
 
 if __name__ == '__main__':
     model = chat_model()
-        
+    print(model.query("如何求解一个矩阵的逆"))

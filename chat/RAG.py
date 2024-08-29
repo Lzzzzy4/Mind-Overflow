@@ -5,7 +5,7 @@ from langchain_community.vectorstores import Chroma
 import json
 
 class RAG:
-    def __init__(self, path:str = "./db.json"):
+    def __init__(self, path:str = "/data/code1/Mind-Overflow/chat/db.json"):
         with open(path) as f:
             temp = json.load(f)
         self.dic = {}
@@ -31,7 +31,7 @@ class RAG:
         # for i,ans in enumerate(context):
         #     reference += f"参考提问{i}：\n{ans.page_content}\n\n"
         #     reference += f"参考回答{i}：\n{self.dic[ans.page_content]}\n\n"
-        
+
         reference += f"参考提问：\n{context[0].page_content}\n\n"
         reference += f"参考回答：\n{self.dic[context[0].page_content]}\n\n"
 
