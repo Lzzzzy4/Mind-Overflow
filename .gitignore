@@ -1,5 +1,6 @@
 .mindnlp*
 nohup.out
+*.pyc
 
 # Logs
 logs
