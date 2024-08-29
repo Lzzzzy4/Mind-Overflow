@@ -41,7 +41,7 @@ class RAG:
             f"否则直接用你的知识回答。    "
             f"参考信息：\n{reference}(若引号为空，请忽略） "
             f"我的问题是：{question}   "
-            f"务必注意，所有的回答必须使用Markdown格式，不能含有其他格式。"
+            f"务必注意，所有的回答必须使用Markdown格式，不能含有其他格式，请回答的详细些，篇幅长一些。"
             )   
 
         return prompt

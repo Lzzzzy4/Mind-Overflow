@@ -1,5 +1,5 @@
-# from transformers import AutoModelForCausalLM, AutoTokenizer
-from mindnlp.transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer
+# from mindnlp.transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation import GenerationConfig
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
