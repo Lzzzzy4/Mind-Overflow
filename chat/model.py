@@ -9,10 +9,8 @@ from mindspore._c_expression import _framework_profiler_step_end
 from transformers.generation import GenerationConfig
 
 class chat_model:
-    def __init__(self, model_type:str = "Qwen", usr_RAG:bool = True):
-        self.usr_RAG = usr_RAG
-        if usr_RAG:
-            self.RAG = RAG()
+    def __init__(self, model_type:str = "Qwen"):
+        self.RAG = RAG()
         self.model_type = model_type
         if model_type == 'GLM':
             from mindnlp.transformers import AutoModelForCausalLM, AutoTokenizer
@@ -38,7 +36,7 @@ class chat_model:
             self.tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen-7B-Chat", trust_remote_code=True)
             self.model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="auto", trust_remote_code=True).eval()
 
-    def query(self, question:str):
+    def query(self, question:str, use_RAG:bool):
         if self.model_type == "GLM":
             print("原始提问\n",question)
             question = self.RAG.query(question)
@@ -57,7 +55,7 @@ class chat_model:
                 return self.tokenizer.decode(outputs[0], skip_special_tokens=True)
         elif self.model_type == "Qwen":
             # print("原始提问\n",question)
-            if self.usr_RAG:
+            if use_RAG:
                 question = self.RAG.query(question)
                 print("RAG\n",question)
 

@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 print("Loading model...")
 mutex = threading.Lock()
-model = chat_model(usr_RAG = True)
+model = chat_model()
 print("Loaded!")
 
 @app.route('/api/query', methods=['POST'])
@@ -22,7 +22,7 @@ def query():
   mutex.acquire()
   data = request.get_json()
   print("Received: ", data)
-  res = { 'ans': model.query(data['text']) }
+  res = { 'ans': model.query(data['text'], use_RAG = True) }
   print("Response: ", res)
   res = jsonify(res)
   mutex.release()

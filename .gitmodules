@@ -1,0 +1,4 @@
+[submodule "ai-navigator"]
+	path = ai-navigator
+	url = git@github.com:caterpillar-1/ai-navigator.git
+	branch = main

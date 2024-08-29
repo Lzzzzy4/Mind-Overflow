@@ -49,8 +49,10 @@ def main():
     ans.append({"question":instruction, "output":output})
 
     # print(ans['以二阶方阵为例，说明各种不同的方阵，对应的线性变换：旋转、缩放、关于x轴对称，关于y轴对称，关于原点对称，关于x轴(y轴)剪切；给出python 代码与几何示例'])
+    for i in ans:
+        print(i['question'])
     # for k,v in ans.items():
-        # print("key",k)
+    #     print("key",k)
         # print("value",v)
         # break
     print(max_)
