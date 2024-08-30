@@ -7,6 +7,7 @@ from mindspore._c_expression import _framework_profiler_step_end
 
 # from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation import GenerationConfig
+import torch
 
 class chat_model:
     def __init__(self, model_type:str = "Qwen"):
@@ -54,6 +55,7 @@ class chat_model:
                 outputs = outputs[:, inputs['input_ids'].shape[1]:]
                 return self.tokenizer.decode(outputs[0], skip_special_tokens=True)
         elif self.model_type == "Qwen":
+            self.set_model()
             # print("原始提问\n",question)
             if use_RAG:
                 question = self.RAG.query(question)
@@ -79,6 +81,10 @@ class chat_model:
             outputs = self.model.generate(**inputs, **gen_kwargs)
             outputs = outputs[:, inputs['input_ids'].shape[1]:]
             return self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+    def set_model(self):
+        torch.manual_seed(45)
+        torch.cuda.manual_seed_all(45)
 
 if __name__ == '__main__':
     model = chat_model()
